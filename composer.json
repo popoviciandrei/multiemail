@@ -1,0 +1,15 @@
+{
+  "name": "popovici/multiemail",
+  "type": "magento-module",
+  "description": "Now you can have transactional email templates per theme. Useful for multi store shops that want to implement different designs based on the theme layout.",
+  "license": [
+    "proprietary"
+  ],
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "extra": {
+    "map": [
+    ]
+  }
+}
