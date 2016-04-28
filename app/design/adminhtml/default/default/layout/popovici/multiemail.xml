@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_system_email_template_edit>
+        <reference name="before_body_end">
+            <block type="adminhtml/store_switcher" name="store_selector"
+                   template="popovici/multiemail/store_select.phtml"></block>
+        </reference>
+    </adminhtml_system_email_template_edit>
+</layout>

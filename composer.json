@@ -10,6 +10,9 @@
   },
   "extra": {
     "map": [
+      ["app/code/community/Popovici/Multiemail","app/code/community/Popovici/Multiemail"],
+      ["app/design/adminhtml/default/default/layout/popovici/multiemail.xml","app/design/adminhtml/default/default/layout/popovici/multiemail.xml"],
+      ["app/etc/modules/Popovici_Multiemail.xml","app/etc/modules/Popovici_Multiemail.xml"]
     ]
   }
 }

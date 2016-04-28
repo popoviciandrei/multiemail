@@ -1,0 +1,45 @@
+<?php /* @var $this Mage_Adminhtml_Block_Store_Switcher */ ?>
+<?php if ($websites = $this->getWebsites()):?>
+<table id="store_selector">
+    <tbody>
+    <tr>
+        <td class="label">
+            <label for="store_identifier"><?php echo $this->__('Choose Store View:') ?></label>
+        </td>
+        <td class="value">
+            <select name="store_identifier" id="store_identifier">
+                <?php if ($this->hasDefaultOption()): ?>
+                    <option value=""><?php echo $this->getDefaultStoreName() ?></option>
+                <?php endif; ?>
+                <?php foreach ($websites as $website): ?>
+                    <?php $showWebsite = false; ?>
+                    <?php foreach ($website->getGroups() as $group): ?>
+                        <?php $showGroup = false; ?>
+                        <?php foreach ($this->getStores($group) as $store): ?>
+                            <?php if ($showWebsite == false): ?>
+                                <?php $showWebsite = true; ?>
+                                <optgroup label="<?php echo $this->escapeHtml($website->getName()) ?>"></optgroup>
+                            <?php endif; ?>
+                            <?php if ($showGroup == false): ?>
+                                <?php $showGroup = true; ?>
+                                <optgroup label="&nbsp;&nbsp;&nbsp;<?php echo $this->escapeHtml($group->getName()) ?>">
+                            <?php endif; ?>
+                            <option value="<?php echo $this->escapeHtml($store->getId()) ?>"<?php if($this->getStoreId() == $store->getId()): ?> selected="selected"<?php endif; ?>>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->escapeHtml($store->getName()) ?></option>
+                        <?php endforeach; ?>
+                        <?php if ($showGroup): ?>
+                            </optgroup>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </select>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script type="text/javascript">
+    //<![CDATA[
+    $$('.form-list:first tbody tr:last')[0].insert({ before:$('store_selector').select('tbody')[0].innerHTML});
+    $('store_selector').remove();
+    //]]>
+</script>
+<?php endif; ?>
